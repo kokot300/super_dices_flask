@@ -1,0 +1,66 @@
+.tg {
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding: 50px;
+}
+
+.tg td {
+    border-style: solid;
+    border-width: 0px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+}
+
+.tg th {
+    border-style: solid;
+    border-width: 0px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+}
+
+.tg .tg-hfk9 {
+    /*background-color: #000000;*/
+    border-color: #000000;
+    text-align: left;
+    vertical-align: top;
+}
+
+.tg .tg-73oq {
+    border-color: #000000;
+    /*background-color: #000000;*/
+    text-align: left;
+    vertical-align: top;
+}
+
+.upper_div{
+    padding-left: 50px;
+}
+
+h1{
+    text-align: center;
+    padding-top: 10px;
+}
+
+.all_div{
+    background-color: #86989B;
+    color: #444444;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 10%;
+}
+
+body{
+    background:url("../images/free-vector-red-poker-background.jpg");
+    background-size: cover;
+}
+
+.result{
+    font-size: 72px;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    text-align: center;
+}

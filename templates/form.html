@@ -1,0 +1,86 @@
+<!doctype html>
+<head>
+    <meta charset="UTF-8">
+    <meta lang="en">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
+          integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/form.css') }}">
+    <title>dices</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/flask.png') }}">
+
+    {% if msg != '' %}
+    <script type="text/javascript">
+        alert("{{ msg }}");
+    </script>
+    {% endif %}
+</head>
+<body>
+<div class="all_div">
+    <h1>Let's play 2001</h1>
+    <div class="upper_div">
+        <ul>
+            <li>each time 2 dices are thrown</li>
+            <li>if dices result is 7 then your points are modulo divided by 7</li>
+            <li>if dices result is 11 then your points are multiplied by 11</li>
+            <li>Otherwise result is just added to your points</li>
+            <li>game is won by who reaches 2001 points or more</li>
+        </ul>
+
+        <p>round {{ rounds }}</p>
+
+        <table class="tg">
+            <tr>
+                <td class="tg-73oq">your points: {{ user_points }}</td>
+                <td class="tg-hfk9">server's points: {{ computer_points }}</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div style="padding: 50px">
+        <form class="pure-form-stacked" method="post" action="/" id="dices_throw">
+
+            <label for="select1">What kind of dice 1 do you want to throw?</label>
+            <select id="select1" name="select1" form="dices_throw">
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="20">20</option>
+                <option value="100">100</option>
+            </select>
+
+            <label for="select2">What kind of dice 2 do you want to throw?</label>
+            <select id="select2" name="select2" form="dices_throw">
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="20">20</option>
+                <option value="100">100</option>
+            </select>
+
+            <label> <input type="hidden" name="user_points" value="{{ user_points }}"></label>
+            <label> <input type="hidden" name="computer_points" value="{{ computer_points }}"></label>
+            <label> <input type="hidden" name="rounds" value="{{ rounds }}"></label>
+            <label> <input type="hidden" name="msg" value="{{ msg }}"></label>
+
+            {% if msg == '' %}
+            <button type="submit" class="pure-button pure-button-primary button">Throw</button>
+            {% else %}
+            <button type="submit" class="pure-button pure-button-primary button">Try again</button>
+            {% endif %}
+
+        </form>
+    </div>
+
+    {% if msg %}
+    <p class="result">{{ msg }}</p>
+    {% endif %}
+
+</div>
+</body>
